@@ -266,6 +266,7 @@
 #  if (defined(__IBMC__) || defined(__IBMCPP__)) && defined(__OS2__)
 #    define PNGAPI _System
 #  else /* !Windows/x86 && !OS/2 */
+#    define PNG_DLL_EXPORT
     /* Use the defaults, or define PNG*API on the command line (but
      * this will have to be done for every compile!)
      */
