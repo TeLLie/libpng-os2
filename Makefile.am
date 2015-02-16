@@ -3,6 +3,7 @@
 #
 
 PNGLIB_BASENAME= libpng@PNGLIB_MAJOR@@PNGLIB_MINOR@
+PNGLIB_OS2= png@PNGLIB_MAJOR@@PNGLIB_MINOR@
 
 ACLOCAL_AMFLAGS = -I scripts
 
@@ -321,9 +322,15 @@ install-library-links:
 	@set -x; cd '$(DESTDIR)$(libdir)';\
 	for ext in $(EXT_LIST); do\
 	   rm -f "libpng.$$ext";\
-           if test -f "$(PNGLIB_BASENAME).$$ext"; then\
-              $(LN_S) "$(PNGLIB_BASENAME).$$ext" "libpng.$$ext" || exit 1;\
+           if test -f "$(PNGLIB_OS2).$$ext"; then\
+              $(LN_S) "$(PNGLIB_OS2).$$ext" "libpng.$$ext" || exit 1;\
            fi;\
+	   if test "$$ext" = "dll.a"; then\
+	      rm -f "libpng_$$ext";\
+              if test -f "$(PNGLIB_OS2)_$$ext"; then\
+                 $(LN_S) "$(PNGLIB_OS2)_$$ext" "libpng_$$ext" || exit 1;\
+              fi;\
+	   fi;\
 	done
 
 uninstall-library-links:
