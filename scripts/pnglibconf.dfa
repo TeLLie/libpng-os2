@@ -221,7 +221,7 @@ option SET_OPTION disabled
 # ARM_NEON_API:   (PNG_ARM_NEON == 1) allow the optimization to be switched on
 #                 with png_set_option
 # ARM_NEON_CHECK: (PNG_ARM_NEON == 1) compile a run-time check to see if Neon
-#                 extensions are supported, this is poorly supported and
+#                 extensions are supported. This is poorly supported and
 #                 deprectated - use the png_set_option API.
 setting ARM_NEON_OPT
 option ARM_NEON_API disabled requires ALIGNED_MEMORY enables SET_OPTION,
@@ -303,7 +303,7 @@ option BENIGN_READ_ERRORS requires BENIGN_ERRORS
 option MNG_FEATURES
 
 # Arithmetic options, the first is the big switch that chooses between internal
-# floating and fixed point arithmetic implementations - it does not affect an
+# floating and fixed point arithmetic implementations - it does not affect any
 # APIs.  The second two (the _POINT settings) switch off individual APIs.
 #
 # Prior to libpng 1.6.8 one of the API (_POINT) variants had to be selected.  At

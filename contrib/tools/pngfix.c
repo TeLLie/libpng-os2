@@ -8,8 +8,8 @@
  * For conditions of distribution and use, see the disclaimer
  * and license in png.h
  *
- * Tool to check and fix the zlib inflate 'too far back' problem, see the usage
- * message for more information.
+ * Tool to check and fix the zlib inflate 'too far back' problem.
+ * See the usage message for more information.
  */
 #include <stdlib.h>
 #include <stdio.h>
@@ -3580,7 +3580,7 @@ read_png(struct control *control)
    volatile png_bytep row = NULL, display = NULL;
    volatile int rc;
 
-   png_ptr = png_create_read_struct(PNG_LIBPNG_VER_STRING, control,
+   png_ptr = png_create_read_struct(png_get_libpng_ver(NULL), control,
       error_handler, warning_handler);
 
    if (png_ptr == NULL)
