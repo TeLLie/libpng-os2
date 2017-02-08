@@ -110,7 +110,7 @@ nodist_libpng@PNGLIB_MAJOR@@PNGLIB_MINOR@_la_SOURCES = pnglibconf.h
 
 libpng@PNGLIB_MAJOR@@PNGLIB_MINOR@_la_LDFLAGS = -no-undefined -export-dynamic \
 	-version-number @PNGLIB_MAJOR@@PNGLIB_MINOR@:@PNGLIB_RELEASE@:0 \
-	-buildlevel '$(BUILDLEVEL_INFO)' \
+	-buildlevel '$(BUILDLEVEL_INFO)'
 
 if HAVE_LD_VERSION_SCRIPT
 #   Versioned symbols and restricted exports
