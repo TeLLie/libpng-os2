@@ -6,6 +6,9 @@
 # This code is released under the libpng license.
 # For conditions of distribution and use, see the disclaimer
 # and license in png.h
+VENDOR ?=community
+BUILD_INFO=\#\#1\#\# $(shell date +'%d %b %Y %H:%M:%S')     $(shell uname -n)
+BUILDLEVEL_INFO=@\#$(VENDOR):$(PNGLIB_VERSION)\#@$(BUILD_INFO)::::$(PNGLIB_RELEASE)::
 
 PNGLIB_BASENAME= libpng@PNGLIB_MAJOR@@PNGLIB_MINOR@
 PNGLIB_OS2= png@PNGLIB_MAJOR@@PNGLIB_MINOR@
@@ -106,7 +109,8 @@ endif
 nodist_libpng@PNGLIB_MAJOR@@PNGLIB_MINOR@_la_SOURCES = pnglibconf.h
 
 libpng@PNGLIB_MAJOR@@PNGLIB_MINOR@_la_LDFLAGS = -no-undefined -export-dynamic \
-	-version-number @PNGLIB_MAJOR@@PNGLIB_MINOR@:@PNGLIB_RELEASE@:0
+	-version-number @PNGLIB_MAJOR@@PNGLIB_MINOR@:@PNGLIB_RELEASE@:0 \
+	-buildlevel '$(BUILDLEVEL_INFO)' \
 
 if HAVE_LD_VERSION_SCRIPT
 #   Versioned symbols and restricted exports
