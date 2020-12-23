@@ -1,0 +1,21 @@
+### These files should get ignored no matter where they appear.
+
+Makefile.in
+aclocal.m4
+autom4te.cache/
+compile
+config.guess
+config.h.in
+config.h.in~
+config.sub
+configure
+depcomp
+install-sh
+missing
+ltmain.sh
+scripts/libtool.m4
+scripts/ltoptions.m4
+scripts/ltsugar.m4
+scripts/ltversion.m4
+scripts/lt~obsolete.m4
+test-driver
